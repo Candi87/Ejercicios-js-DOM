@@ -9,18 +9,16 @@ function crono(seconds, minutes, hours, days) {
         if (seconds >= 0) {
             seconds += 5;
         }
-        if (seconds < 10) {
-            seconds = 0 + seconds;
-        }
+
         if (seconds > 59) {
             seconds = 0;
             minutes++;
         }
-        if (minutes < 10)
-            if (minutes > 59) {
-                minutes = 0;
-                hours++;
-            }
+
+        if (minutes > 59) {
+            minutes = 0;
+            hours++;
+        }
 
         if (hours > 24) {
             hours = 0;
