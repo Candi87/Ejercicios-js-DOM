@@ -3,23 +3,26 @@
 // Consigue una lista con los nombres de los personajes de la serie Rick and Morty que aparecen en los episodios lanzados en el mes de enero (el año no importa).
 
 // Utiliza llamadas a la API: 'https://rickandmortyapi.com/api/'
+'use strict';
 
-const API_URL = 'https://rickandmortyapi.com/api/character/';
+let API_URL = 'https://rickandmortyapi.com/api/episode/';
 
 const getCharacters = async () => {
     try {
-        const result = await fetch(API_URL).then((result) => result.json());
-        return result;
+        do {
+            const { results, info } = await fetch(API_URL).then((results) =>
+                results.json()
+            );
+            for (const result of results) {
+                console.log(result.air_date);
+            }
+
+            // return result;
+            API_URL = info.next;
+        } while (API_URL !== null);
     } catch (e) {
         console.error(e);
         return undefined;
     }
 };
-
-(async () => {
-    const nombresAPI = await getCharacters();
-    if (nombresAPI) {
-        const nombres = nombresAPI.results.map((element) => element.name);
-        console.log(nombres);
-    }
-})();
+getCharacters();

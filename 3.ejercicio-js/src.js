@@ -7,6 +7,7 @@ console.log(decimal, decimalABinario);
 
 function binarioToDecimal(numeroBin) {
     let numeroDecimal = 0;
+
     const contadorBinario = numeroBin.length;
 
     for (let i = 0; i < contadorBinario; i++) {

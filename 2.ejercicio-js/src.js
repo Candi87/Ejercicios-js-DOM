@@ -26,6 +26,6 @@ function crono(seconds, minutes, hours, days) {
         }
 
         console.log(days, hours, minutes, seconds);
-    }, 5000);
+    }, 50);
 }
 crono(0, 0, 0, 0);
