@@ -14,10 +14,21 @@ const getCharacters = async () => {
                 results.json()
             );
             for (const result of results) {
-                console.log(result.air_date);
+                const date = result.air_date;
+                const date1 = date.split(' ');
+                if (date1[0] === 'January') {
+                    const characters = result.characters;
+                    for (const character of characters) {
+                        fetch(character)
+                            .then((response) => response.json())
+                            .then((data) => {
+                                const name = data.name;
+                                console.log(`${date1} ${name}`);
+                            });
+                    }
+                }
             }
 
-            // return result;
             API_URL = info.next;
         } while (API_URL !== null);
     } catch (e) {
