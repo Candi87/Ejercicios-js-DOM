@@ -25,7 +25,9 @@ function crono(seconds, minutes, hours, days) {
             days++;
         }
 
-        console.log(days, hours, minutes, seconds);
+        console.log(
+            `${days} dias: ${hours} horas: ${minutes} minutos: ${seconds} segundos`
+        );
     }, 5000);
 }
 crono(0, 0, 0, 0);
